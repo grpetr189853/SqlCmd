@@ -14,6 +14,11 @@ public class InMemoryDatabaseManager implements DatabaseManager{
         return Arrays.copyOf(data, freeIndex);
     }
 
+    @Override
+    public String[] getTableColumns(String tableName) {
+        return new String[]{"name","password","id"};
+    }
+
     private void validateTable(String tableName) {
         if(!"user".equals(tableName)) {
             throw new UnsupportedOperationException("Only for 'user' table, but you will work with " + tableName);
